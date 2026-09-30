@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm Paper Theme (Light) */
+    --bg-rgb: 250, 246, 238;
+    --surface-rgb: 255, 255, 255;
+    --surface-2-rgb: 241, 235, 221;
+    --surface-3-rgb: 231, 223, 204;
+    --border-rgb: 20, 20, 40;
+    --text-primary-rgb: 28, 25, 23;
+    --text-secondary-rgb: 87, 83, 78;
+    --text-muted-rgb: 143, 139, 131;
+
+    --bg: rgb(var(--bg-rgb));
+    --surface: rgb(var(--surface-rgb));
+    --surface-2: rgb(var(--surface-2-rgb));
+    --surface-3: rgb(var(--surface-3-rgb));
+    --border: rgba(20, 20, 40, 0.10);
+    --border-strong: rgba(20, 20, 40, 0.20);
+    --text-primary: rgb(var(--text-primary-rgb));
+    --text-secondary: rgb(var(--text-secondary-rgb));
+    --text-muted: rgb(var(--text-muted-rgb));
+    
+    --shadow-soft: 0 4px 20px -2px rgba(44, 30, 10, 0.08);
+  }
+
+  .dark {
+    /* Midnight Library Theme (Dark) */
+    --bg-rgb: 11, 16, 32;
+    --surface-rgb: 18, 26, 51;
+    --surface-2-rgb: 26, 36, 69;
+    --surface-3-rgb: 35, 48, 89;
+    --border-rgb: 255, 255, 255;
+    --text-primary-rgb: 248, 250, 252;
+    --text-secondary-rgb: 148, 163, 184;
+    --text-muted-rgb: 100, 116, 139;
+
+    --bg: rgb(var(--bg-rgb));
+    --surface: rgb(var(--surface-rgb));
+    --surface-2: rgb(var(--surface-2-rgb));
+    --surface-3: rgb(var(--surface-3-rgb));
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --text-primary: rgb(var(--text-primary-rgb));
+    --text-secondary: rgb(var(--text-secondary-rgb));
+    --text-muted: rgb(var(--text-muted-rgb));
+    
+    --shadow-soft: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, .font-serif-heading {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+code, pre, .font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Subtle paper texture overlay */
+.paper-texture {
+  background-image: radial-gradient(rgba(124, 108, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism utility */
+.glass-surface {
+  background-color: rgba(18, 26, 51, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.light .glass-surface {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 108, 255, 0.4);
+}
+
+/* Smooth Focus Rings */
+*:focus-visible {
+  outline: 2px solid #7C6CFF;
+  outline-offset: 2px;
+}
