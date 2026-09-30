@@ -28,7 +28,7 @@ class Settings(BaseSettings):
     OPENAI_MODEL: str = "gpt-4o-mini"
     
     GEMINI_API_KEY: Optional[str] = None
-    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_MODEL: str = "gemini-3.5-flash"
     
     # Embedding Models
     EMBEDDING_MODEL_DEFAULT: str = "BAAI/bge-small-en-v1.5"

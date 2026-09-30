@@ -12,7 +12,7 @@ from backend.app.deps import get_current_db
 from backend.app.db.models import Workspace, Document, DocumentChunk, IngestionJob
 from backend.app.core.errors import NotFoundError, ValidationError
 from backend.app.core.security import sanitize_workspace_id
-from backend.app.ingestion.loader import save_uploaded_pdf
+from backend.app.ingestion.loader import save_uploaded_document
 from backend.app.ingestion.pipeline import (
     process_document_ingestion, 
     subscribe_job_events, 
@@ -38,7 +38,7 @@ async def upload_documents(
     
     for upload in files:
         content = await upload.read()
-        target_path, safe_name, sha256_hash, file_size = save_uploaded_pdf(
+        target_path, safe_name, sha256_hash, file_size = save_uploaded_document(
             workspace_id=clean_ws_id,
             filename=upload.filename or "document.pdf",
             content=content

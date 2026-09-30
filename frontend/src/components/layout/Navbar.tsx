@@ -98,10 +98,10 @@ export const Navbar: React.FC = () => {
             <div 
               className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-btn bg-bg-surface-2 border border-border text-xs text-fg-muted cursor-pointer"
               onClick={() => setSettingsOpen(true)}
-              title={`RAM: ${health.memory.process_rss_mb} MB | LLM: ${health.llm_provider.toUpperCase()} (${health.llm_connection.status})`}
+              title={`RAM: ${health.memory?.process_rss_mb ?? 0} MB | LLM: ${health.llm_provider?.toUpperCase()} (${health.llm_connection?.status ?? 'unknown'})`}
             >
               <Cpu className="w-3.5 h-3.5 text-brand-sky" />
-              <span>{health.memory.process_rss_mb} MB</span>
+              <span>{health.memory?.process_rss_mb ?? 0} MB</span>
               <span className="w-1.5 h-1.5 rounded-full bg-brand-mint"></span>
               <span className="capitalize">{health.llm_provider}</span>
             </div>
